@@ -1,0 +1,76 @@
+
+
+<html>
+  <script>
+    function validateForm() {
+
+if (document.signup.name.value == "") {
+    //alert("Name Field Empty!!")
+    document.getElementById("i1").innerHTML =
+            "*Name field is empty";
+    document.signup.name.focus();
+    return false;
+}
+
+if (!/^[a-z A-Z]+$/.test(document.signup.name.value)) {
+    alert("Name must contain only alphabets")
+    document.signup.name.focus()
+    return false;
+}
+
+
+
+if (document.signup.password.value == "") {
+   //alert("Password field is empty");
+     document.getElementById("i2").innerHTML="*Password is empty"; 
+    document.signup.password.focus();
+    return false;
+
+}
+if (document.signup.confirm_password.value == "") {
+    alert("Confirm Password field is empty");
+    document.signup.confirm_password.focus();
+    return false;
+}
+if (document.signup.password.value != document.signup.confirm_password.value) {
+    alert("Password and Confirm password does not match");
+    document.signup.confirm_password.focus();
+    return false;
+}
+if (document.signup.Id.value != "customer" && document.signup.Id.value != "artist" &&document.signup.Id.value != "admin is here" ) {
+    alert("Please type customer or artist");
+    document.signup.Id.focus();
+    return false;
+}
+
+
+}
+
+</script><body><center> 
+
+<h2> Art Gallery  </h2> 
+<h3> Login</h3> 
+
+<form name ="signup" action="searchartist" onSubmit = "return validateForm()" > 
+<TABLE BORDER="1" > 
+
+<TR> 
+  <TD><h4 >Name</h4></TD> 
+  <TD><input type="text" name="name" /></TD> 
+</TR> 
+
+<TR> 
+  <TD><h4 >Password</h4></TD> 
+  <TD><input type="password" name="password" /></TD> 
+</TR> 
+
+<TR>
+  <TD COLSPAN="2" ALIGN="CENTER"><input type="submit" value="login" name="action" />
+  <input type="reset" value="clear" /></TD> 
+</TR> 
+
+</TABLE></form> 
+<h4>Don't have Account?</h4>
+<h4><a href="addartist.jsp" > Signup here </a></h4> 
+
+</center></body></html>
